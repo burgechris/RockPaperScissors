@@ -26,8 +26,6 @@ class Program
             Console.WriteLine("Computer chose " + rps.Comp.Item);
             Console.WriteLine(rps.GamePlay());
             Console.WriteLine("------------------------------");
-            Console.WriteLine(">>>>>>>>>User.Wins: " + rps.User.Wins);
-            Console.WriteLine(">>>>>>>>>Comp.Wins: " + rps.Comp.Wins);
         }
         Console.WriteLine("Play again? (Y/N)");
         string response = Console.ReadLine();
