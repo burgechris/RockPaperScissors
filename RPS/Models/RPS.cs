@@ -13,13 +13,17 @@ namespace Game
         public string GamePlay()
         {
             string result = "";
-            if(User.Item == Comp.Item)
+            if (User.Item == Comp.Item)
             {
                 result = "It's a DRAW!";
             }
-            else if (User.Item == "paper" && Comp.Item == "rock")
+            else if (User.Item == "paper" && Comp.Item == "rock" || User.Item == "rock" && Comp.Item == "scissors")
             {
                 result = "User wins!";
+            }
+            else if (Comp.Item == "paper" && User.Item == "rock" || Comp.Item == "rock" && User.Item == "scissors")
+            {
+                result = "Computer wins!";
             }
 
 
