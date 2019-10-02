@@ -7,7 +7,7 @@ class Program
     {
         Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         Console.WriteLine("Welcome to the classic game of Rock, Paper, Scissors!");
-        Console.WriteLine("Best two out of three wins!!");
+        Console.WriteLine("Best two out of three wins the match!!");
         Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         RPS rps  = new RPS();
         StartGame(rps);
@@ -17,13 +17,13 @@ class Program
     {
         while (!rps.CheckForTwoWins())
         {
-            Console.WriteLine("Type rock, paper, or scissors (R/P/S):");
+            Console.WriteLine("Choose rock, paper, or scissors (R/P/S):");
             string input = Console.ReadLine();
             rps.User.ChooseItem(input);
             rps.Comp.ChooseRandomly();
             Console.WriteLine("------------------------------");
-            Console.WriteLine("You chose " + rps.User.Item);
-            Console.WriteLine("Computer chose " + rps.Comp.Item);
+            Console.WriteLine("You chose: " + rps.User.Item);
+            Console.WriteLine("Computer chose: " + rps.Comp.Item);
             Console.WriteLine(rps.GamePlay());
             Console.WriteLine("------------------------------");
         }
