@@ -1,3 +1,4 @@
+using System;
 
 namespace Game
 {
@@ -13,17 +14,23 @@ namespace Game
         public string GamePlay()
         {
             string result = "";
-            if (User.Item == Comp.Item)
+            string userChoice = User.Item[0].ToString().ToLower();
+            string compChoice = Comp.Item[0].ToString().ToLower();
+            if (userChoice == compChoice)
             {
                 result = "It's a DRAW!";
             }
-            else if (User.Item == "paper" && Comp.Item == "rock" || User.Item == "rock" && Comp.Item == "scissors" || User.Item == "scissors" && Comp.Item == "paper")
+            else if (userChoice == "p" && compChoice == "r" || userChoice == "r" && compChoice == "s" || userChoice == "s" && compChoice == "p")
             {
                 result = "User wins!";
             }
-            else if (Comp.Item == "paper" && User.Item == "rock" || Comp.Item == "rock" && User.Item == "scissors" || Comp.Item == "scissors" && User.Item == "paper")
+            else if (compChoice == "paper" && userChoice == "rock" || compChoice == "rock" && userChoice == "scissors" || compChoice == "scissors" && userChoice == "paper")
             {
                 result = "Computer wins!";
+            }
+            else
+            {
+                result = "Try again.";
             }
             return result;
         }
@@ -34,11 +41,25 @@ namespace Game
         public string Item { get; set; }
         public void ChooseItem(string item)
         {
-            Item = item;
+            if (item[0].ToString().ToLower() == "r")
+            {
+                Item = "rock";
+            }
+            else if (item[0].ToString().ToLower() == "p")
+            {
+                Item = "paper";
+            }
+            else if (item[0].ToString().ToLower() == "s")
+            {
+                Item = "scissors";
+            }
         }
         public void ChooseRandomly()
         {
-
+            string[] items = { "rock", "paper", "scissors" };
+            Random random = new Random();
+            int i = random.Next(0, items.Length-1);
+            Item = items[i];
         }
     }
 }
