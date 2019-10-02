@@ -15,30 +15,31 @@ class Program
 
     public static void StartGame(RPS rps)
     {
-        Console.WriteLine("Type rock, paper, or scissors (R/P/S):");
-        string input = Console.ReadLine();
-        rps.User.ChooseItem(input);
-        rps.Comp.ChooseRandomly();
-        Console.WriteLine(rps.GamePlay());
-
-        Console.WriteLine("------------------------------");
-        Console.WriteLine("You chose " + rps.User.Item);
-        Console.WriteLine("Computer chose " + rps.Comp.Item);
-        Console.WriteLine("------------------------------");
-
-        if (rps.CheckForTwoWins())
+        while (!rps.CheckForTwoWins())
         {
-            Console.WriteLine("Play again? (Y/N)");
-            string response = Console.ReadLine();
-            if (response[0].ToString().ToUpper() == "Y")
-            {
-                StartGame(rps);
-            }
-            else
-            {
-                Console.WriteLine("Bye!");
-            }
+            Console.WriteLine("Type rock, paper, or scissors (R/P/S):");
+            string input = Console.ReadLine();
+            rps.User.ChooseItem(input);
+            rps.Comp.ChooseRandomly();
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("You chose " + rps.User.Item);
+            Console.WriteLine("Computer chose " + rps.Comp.Item);
+            Console.WriteLine(rps.GamePlay());
+            Console.WriteLine("------------------------------");
+            Console.WriteLine(">>>>>>>>>User.Wins: " + rps.User.Wins);
+            Console.WriteLine(">>>>>>>>>Comp.Wins: " + rps.Comp.Wins);
         }
-        
+        Console.WriteLine("Play again? (Y/N)");
+        string response = Console.ReadLine();
+        if (response[0].ToString().ToUpper() == "Y")
+        {
+            rps.User.Wins = 0;
+            rps.Comp.Wins = 0;
+            StartGame(rps);
+        }
+        else
+        {
+            Console.WriteLine("Bye!");
+        }
     }
 }
