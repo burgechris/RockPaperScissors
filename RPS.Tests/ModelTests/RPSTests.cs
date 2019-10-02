@@ -20,5 +20,17 @@ namespace Game.Test
         //Assert
         Assert.AreEqual("It's a DRAW!", result);
         }
+
+        [TestMethod]
+        public void GamePlay_PaperBeatsRock_UserWins()
+        {
+        //Arrange
+        rps.User.ChooseItem("paper");
+        rps.Comp.ChooseItem("rock");
+        //Act
+        string result = rps.GamePlay();
+        //Assert
+        Assert.AreEqual("User wins!", result);
+        }
     }
 }

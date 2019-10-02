@@ -17,6 +17,10 @@ namespace Game
             {
                 result = "It's a DRAW!";
             }
+            else if (User.Item == "paper" && Comp.Item == "rock")
+            {
+                result = "User wins!";
+            }
 
 
 
