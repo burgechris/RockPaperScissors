@@ -17,17 +17,14 @@ namespace Game
             {
                 result = "It's a DRAW!";
             }
-            else if (User.Item == "paper" && Comp.Item == "rock" || User.Item == "rock" && Comp.Item == "scissors")
+            else if (User.Item == "paper" && Comp.Item == "rock" || User.Item == "rock" && Comp.Item == "scissors" || User.Item == "scissors" && Comp.Item == "paper")
             {
                 result = "User wins!";
             }
-            else if (Comp.Item == "paper" && User.Item == "rock" || Comp.Item == "rock" && User.Item == "scissors")
+            else if (Comp.Item == "paper" && User.Item == "rock" || Comp.Item == "rock" && User.Item == "scissors" || Comp.Item == "scissors" && User.Item == "paper")
             {
                 result = "Computer wins!";
             }
-
-
-
             return result;
         }
     }
