@@ -24,7 +24,7 @@ namespace Game
             {
                 result = "User wins!";
             }
-            else if (compChoice == "paper" && userChoice == "rock" || compChoice == "rock" && userChoice == "scissors" || compChoice == "scissors" && userChoice == "paper")
+            else if (compChoice == "p" && userChoice == "r" || compChoice == "r" && userChoice == "s" || compChoice == "s" && userChoice == "p")
             {
                 result = "Computer wins!";
             }
